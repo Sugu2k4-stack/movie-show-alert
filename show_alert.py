@@ -32,7 +32,8 @@ HEADERS = {
 # ---------------------------------------------------------------- alerts
 def notify(title: str, message: str, link: str = "") -> bool:
     sent = False
-    topic = os.getenv("NTFY_TOPIC")
+    # accept "my-topic" or a pasted link like "https://ntfy.sh/my-topic"
+    topic = (os.getenv("NTFY_TOPIC") or "").strip().rstrip("/").split("/")[-1].strip()
     if topic:
         try:
             headers = {"Title": title.encode("utf-8"), "Priority": "urgent", "Tags": "movie_camera"}
@@ -44,6 +45,8 @@ def notify(title: str, message: str, link: str = "") -> bool:
             print("  ntfy sent")
         except Exception as e:
             print("  ntfy FAILED:", e)
+            print("  hint: NTFY_TOPIC must be only letters, numbers, - or _ "
+                  f"(got {len(topic)} chars, spaces: {' ' in topic})")
 
     phone, key = os.getenv("CALLMEBOT_PHONE"), os.getenv("CALLMEBOT_APIKEY")
     if phone and key:
