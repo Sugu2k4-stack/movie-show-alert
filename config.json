@@ -1,0 +1,20 @@
+{
+  "movie_keyword": "doomsday",
+  "language": "Tamil",
+  "show_date": "2026-12-17",
+  "earliest_show_time": "19:00",
+  "theatres": [
+    {
+      "name": "Kamala Cinemas, Vadapalani",
+      "url": "https://ticketnew.com/movies/chennai/kamala-cinemas-4k-rgb-laser-dolby-vadapalani-chennai-c/5059"
+    }
+  ],
+  "watch_for_new_theatres": [
+    {
+      "name": "Rohini Silver Screens, Koyambedu",
+      "list_url": "https://www.district.in/movies/cinemas-in-chennai",
+      "must_contain": "rohini",
+      "must_not_contain": "mamandur"
+    }
+  ]
+}
